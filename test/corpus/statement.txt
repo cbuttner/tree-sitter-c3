@@ -1,0 +1,600 @@
+================================================================================
+If statements
+================================================================================
+
+fn void main() {
+    if (true) false;
+    if (1) {
+        0;
+    }
+    if (true) {
+        0;
+    } else {
+        1;
+    }
+    if (a) {
+        0;
+    } else if (b) {
+        1;
+    } else {
+        2;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (if_stmt
+          (paren_cond)
+          (expr_stmt))
+        (if_stmt
+          (paren_cond
+            (integer_literal))
+          (compound_stmt
+            (expr_stmt
+              (integer_literal))))
+        (if_stmt
+          (paren_cond)
+          (compound_stmt
+            (expr_stmt
+              (integer_literal)))
+          (else_part
+            (compound_stmt
+              (expr_stmt
+                (integer_literal)))))
+        (if_stmt
+          (paren_cond
+            (ident))
+          (compound_stmt
+            (expr_stmt
+              (integer_literal)))
+          (else_part
+            (if_stmt
+              (paren_cond
+                (ident))
+              (compound_stmt
+                (expr_stmt
+                  (integer_literal)))
+              (else_part
+                (compound_stmt
+                  (expr_stmt
+                    (integer_literal)))))))))))
+
+================================================================================
+While statements
+================================================================================
+
+fn void main() {
+    int i = 0;
+    while (i < 10) {
+        i += 1;
+        i++;
+    }
+    while (1) {
+        print(1);
+    }
+    while (Point* p = getPoint())
+    {
+        print(p.calculate());
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (declaration_stmt
+          (type
+            (base_type
+              (base_type_name)))
+          (local_decl_after_type
+            (ident)
+            (integer_literal)))
+        (while_stmt
+          (paren_cond
+            (binary_expr
+              (ident)
+              (integer_literal)))
+          (compound_stmt
+            (expr_stmt
+              (assignment_expr
+                (ident)
+                (integer_literal)))
+            (expr_stmt
+              (update_expr
+                (ident)))))
+        (while_stmt
+          (paren_cond
+            (integer_literal))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (integer_literal)))))))
+        (while_stmt
+          (paren_cond
+            (type
+              (base_type
+                (type_ident))
+              (type_suffix))
+            (local_decl_after_type
+              (ident)
+              (call_expr
+                (ident)
+                (call_invocation))))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (call_expr
+                      (field_expr
+                        (ident)
+                        (access_ident
+                          (ident)))
+                      (call_invocation))))))))))))
+
+================================================================================
+Do statements
+================================================================================
+
+fn void main() {
+    do
+    {
+        print(i);
+    };
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (do_stmt
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (ident)))))))))))
+
+================================================================================
+For statements
+================================================================================
+
+fn void main() {
+    for (int i = 0; i < 10; i++) {
+        print(i);
+    }
+    for (i = 0; i < 10; i++) {
+        print(i);
+    }
+    for (;;) {
+        print(1);
+    }
+    for (; i < 10;) {
+        print(1);
+    }
+    for (;; i++) {
+        print(1);
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (for_stmt
+          (for_cond
+            (comma_decl_or_expr
+              (type
+                (base_type
+                  (base_type_name)))
+              (local_decl_after_type
+                (ident)
+                (integer_literal)))
+            (binary_expr
+              (ident)
+              (integer_literal))
+            (comma_decl_or_expr
+              (update_expr
+                (ident))))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (ident)))))))
+        (for_stmt
+          (for_cond
+            (comma_decl_or_expr
+              (assignment_expr
+                (ident)
+                (integer_literal)))
+            (binary_expr
+              (ident)
+              (integer_literal))
+            (comma_decl_or_expr
+              (update_expr
+                (ident))))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (ident)))))))
+        (for_stmt
+          (for_cond)
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (integer_literal)))))))
+        (for_stmt
+          (for_cond
+            (binary_expr
+              (ident)
+              (integer_literal)))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (integer_literal)))))))
+        (for_stmt
+          (for_cond
+            (comma_decl_or_expr
+              (update_expr
+                (ident))))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation
+                  (arg
+                    (integer_literal)))))))))))
+
+================================================================================
+Foreach statements
+================================================================================
+
+fn void main() {
+    foreach (index, value : values)
+    {
+        io::printfn("%d: %f", index, value);
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (foreach_stmt
+          (foreach_cond
+            (foreach_var
+              (ident))
+            (foreach_var
+              (ident))
+            (ident))
+          (compound_stmt
+            (expr_stmt
+              (call_expr
+                (module_ident_expr
+                  (module_resolution
+                    (ident))
+                  (ident))
+                (call_invocation
+                  (arg
+                    (string_literal
+                      (string_content)))
+                  (arg
+                    (ident))
+                  (arg
+                    (ident)))))))))))
+
+================================================================================
+Defer statements
+================================================================================
+
+fn void main() {
+    defer free();
+    defer {
+        i = i + 1;
+        break;
+    }
+    defer {
+        defer test1();
+        test2();
+        defer test3();
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (defer_stmt
+          (expr_stmt
+            (call_expr
+              (ident)
+              (call_invocation))))
+        (defer_stmt
+          (compound_stmt
+            (expr_stmt
+              (assignment_expr
+                (ident)
+                (binary_expr
+                  (ident)
+                  (integer_literal))))
+            (break_stmt)))
+        (defer_stmt
+          (compound_stmt
+            (defer_stmt
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (expr_stmt
+              (call_expr
+                (ident)
+                (call_invocation)))
+            (defer_stmt
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))))))))
+
+================================================================================
+Switch statements
+================================================================================
+
+fn void main() {
+    switch {
+      case 1:
+      case 2:
+        a();
+        nextcase;
+      case 3:
+        b();
+      default:
+        c();
+        break;
+    }
+
+    switch {
+      case true:
+        return;
+    }
+
+    switch (i) {
+      case 1:
+        doSomething();
+        nextcase;
+      case 2:
+        doSomethingElse();
+    }
+
+    switch (true)
+    {
+        case x < 0:
+            xless();
+        case x > 0:
+            xgreater();
+        default:
+            xequals();
+    }
+
+    switch {
+      case foo() > 0:
+        bar();
+      case test() == 1:
+        baz();
+    }
+
+    switch (i) {
+      case 1:
+        doSomething();
+        nextcase 3;
+      case 2:
+        doSomethingElse();
+      case 3:
+        nextcase rand();
+      default:
+        io::println("Ended");
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (func_definition
+    (func_header
+      (type
+        (base_type
+          (base_type_name)))
+      (ident))
+    (fn_parameter_list)
+    (macro_func_body
+      (compound_stmt
+        (switch_stmt
+          (switch_body
+            (case_stmt
+              (integer_literal))
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation)))
+              (nextcase_stmt))
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (default_stmt
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation)))
+              (break_stmt))))
+        (switch_stmt
+          (switch_body
+            (case_stmt
+              (return_stmt))))
+        (switch_stmt
+          (paren_cond
+            (ident))
+          (switch_body
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation)))
+              (nextcase_stmt))
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))))
+        (switch_stmt
+          (paren_cond)
+          (switch_body
+            (case_stmt
+              (binary_expr
+                (ident)
+                (integer_literal))
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (case_stmt
+              (binary_expr
+                (ident)
+                (integer_literal))
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (default_stmt
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))))
+        (switch_stmt
+          (switch_body
+            (case_stmt
+              (binary_expr
+                (call_expr
+                  (ident)
+                  (call_invocation))
+                (integer_literal))
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (case_stmt
+              (binary_expr
+                (call_expr
+                  (ident)
+                  (call_invocation))
+                (integer_literal))
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))))
+        (switch_stmt
+          (paren_cond
+            (ident))
+          (switch_body
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation)))
+              (nextcase_stmt
+                (integer_literal)))
+            (case_stmt
+              (integer_literal)
+              (expr_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (case_stmt
+              (integer_literal)
+              (nextcase_stmt
+                (call_expr
+                  (ident)
+                  (call_invocation))))
+            (default_stmt
+              (expr_stmt
+                (call_expr
+                  (module_ident_expr
+                    (module_resolution
+                      (ident))
+                    (ident))
+                  (call_invocation
+                    (arg
+                      (string_literal
+                        (string_content)))))))))))))

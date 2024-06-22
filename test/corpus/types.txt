@@ -1,0 +1,258 @@
+================================================================================
+Primitive types
+================================================================================
+
+int a;
+char a;
+ushort a;
+uint a;
+ulong a;
+uptr a;
+usz a;
+
+ichar a;
+short a;
+int a;
+long a;
+iptr a;
+isz a;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name)))
+    (ident)))
+
+================================================================================
+Array types
+================================================================================
+
+int[*] a = { 1, 2, 3, 4, 5 };
+int[5] a = { 1, 2, 3, 4, 5 };
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name))
+      (type_suffix))
+    (ident)
+    (initializer_list
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))))
+  (global_declaration
+    (type
+      (base_type
+        (base_type_name))
+      (type_suffix
+        (integer_literal)))
+    (ident)
+    (initializer_list
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal))
+      (arg
+        (integer_literal)))))
+
+================================================================================
+Type identifiers
+================================================================================
+
+Foo a;
+foo::Bar a;
+foo::bar::Baz a;
+Foo[10] b;
+foo::Bar[10] b;
+foo::bar::Baz[10] b;
+Foo! c;
+foo::Bar! c;
+foo::bar::Baz! c;
+Foo* c;
+foo::Bar* c;
+foo::bar::Baz* c;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_declaration
+    (type
+      (base_type
+        (type_ident)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (type_ident))))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (module_resolution
+            (ident))
+          (type_ident))))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (type_ident))
+      (type_suffix
+        (integer_literal)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (type_ident)))
+      (type_suffix
+        (integer_literal)))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (module_resolution
+            (ident))
+          (type_ident)))
+      (type_suffix
+        (integer_literal)))
+    (ident))
+  (global_declaration
+    (optional_type
+      (type
+        (base_type
+          (type_ident))))
+    (ident))
+  (global_declaration
+    (optional_type
+      (type
+        (base_type
+          (module_type_ident
+            (module_resolution
+              (ident))
+            (type_ident)))))
+    (ident))
+  (global_declaration
+    (optional_type
+      (type
+        (base_type
+          (module_type_ident
+            (module_resolution
+              (ident))
+            (module_resolution
+              (ident))
+            (type_ident)))))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (type_ident))
+      (type_suffix))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (type_ident)))
+      (type_suffix))
+    (ident))
+  (global_declaration
+    (type
+      (base_type
+        (module_type_ident
+          (module_resolution
+            (ident))
+          (module_resolution
+            (ident))
+          (type_ident)))
+      (type_suffix))
+    (ident)))
