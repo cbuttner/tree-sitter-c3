@@ -27,5 +27,7 @@
     },
     "windows-x64" : {
     },
+    "windows-aarch64" : {
+    },
   }
 }
